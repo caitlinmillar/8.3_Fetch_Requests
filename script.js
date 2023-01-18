@@ -1,22 +1,8 @@
-const url = "https://restcountries.com/v2/all";
-const countriesSection = document.getElementById("countries")
-
-function getCountryByName(countryName){
-    let countryName=data[0].countryName;
-    fetch("https://restcountries.com/v3.1/name/{countryName}")
-    .then(response => response.json())
-    .then(data => console.log(data))
-    return countryName;
+const getCountryByName = async ()=>{
+    const response = await fetch ('https://restcountries.com/v3.1/name/peru');
+    const jsonData = await response.json();
+    console.log(jsonData);
 }
-// fetch("https://restcountries.com/v3.1/name/peru")
-//     .then(response => response.json())
-//     .then(data => console.log(data))
 
-
-const getAllCountries=
-fetch("https://restcountries.com/v2/all")
-    .then(response => response.json())
-    .then(data => console.log(data))
-
-getCountryByName("France");
-
+const button = document.querySelector("button");
+button.addEventListener("click", getCountryByName)
